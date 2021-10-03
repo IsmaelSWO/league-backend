@@ -452,16 +452,16 @@ const deletePlayer = async (req, res, next) => {
     return next(error);
   }
 
-  // if (
-  //   player.creator.players.length <= 13 &&
-  //   player.creator.id === req.userData.userId
-  // ) {
-  //   const error = new HttpError(
-  //     "Operación cancelada, ya que el número de jugadores en plantilla sería menor a 13.",
-  //     404
-  //   );
-  //   return next(error);
-  // }
+   if (
+     player.creator.players.length <= 13 &&
+     player.creator.id === req.userData.userId
+   ) {
+     const error = new HttpError(
+       "Operación cancelada, ya que el número de jugadores en plantilla sería menor a 13.",
+       404
+     );
+    return next(error);
+   }
 
   let user;
   try {
