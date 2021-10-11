@@ -252,9 +252,9 @@ const createDiscardedPlayer = async (req, res, next) => {
     return next(error);
   }
 
-  if (user.players.length < 0) {
+  if (user.players.length < 14) {
     const error = new HttpError(
-      "Operación cancelada, ya que se quedaría con menos de 13 jugadores.",
+      "Operación cancelada, ya que se quedaría con menos de 14 jugadores.",
       404
     );
     return next(error);
@@ -442,22 +442,22 @@ const deletePlayer = async (req, res, next) => {
   }
 
   if (
-    player.creator.players.length <= 0 &&
+    player.creator.players.length <= 14 &&
     player.creator.id !== req.userData.userId
   ) {
     const error = new HttpError(
-      "Operación cancelada, ya que el número de jugadores en plantilla del usuario sería menor a 13.",
+      "Operación cancelada, ya que el número de jugadores en plantilla del usuario sería menor a 14.",
       404
     );
     return next(error);
   }
 
    if (
-     player.creator.players.length <= 0 &&
+     player.creator.players.length <= 14 &&
      player.creator.id === req.userData.userId
    ) {
      const error = new HttpError(
-       "Operación cancelada, ya que el número de jugadores en plantilla sería menor a 13.",
+       "Operación cancelada, ya que el número de jugadores en plantilla sería menor a 14.",
        404
      );
     return next(error);
