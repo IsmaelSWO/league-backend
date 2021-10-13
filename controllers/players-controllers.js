@@ -448,7 +448,7 @@ const deletePlayer = async (req, res, next) => {
   }
 
   if (
-    player.creator.players.length <= 14 &&
+    player.creator.players.length <= 0 &&
     player.creator.id !== req.userData.userId
   ) {
     const error = new HttpError(
