@@ -419,13 +419,13 @@ const updateTransferiblePlayer = async (req, res, next) => {
 
 const deletePlayer = async (req, res, next) => {
   const playerId = req.params.pid;
-  const date = new Date();
+  /* const date = new Date();
   const month = date.getMonth();
   const year = date.getFullYear();
   const initDateSummerTransfer = new Date(year, month, 1, 22, 30);
   const endDateSummerTransfer = new Date(year, month, 4, 22, 30);
   const initDateWinterTransfer = new Date(year, month, 15, 22, 30);
-  const endDateWinterTransfer = new Date(year, month, 18, 22, 30);
+  const endDateWinterTransfer = new Date(year, month, 18, 22, 30); */
   let player;
   let ofertasPlayer;
   try {
@@ -503,7 +503,7 @@ const deletePlayer = async (req, res, next) => {
       return next(error);
     }
   }
-  console.log(user.equipo, "Sati");
+
   try {
     const sess = await mongoose.startSession();
     sess.startTransaction();
@@ -528,7 +528,7 @@ const deletePlayer = async (req, res, next) => {
 const deleteDiscardedPlayer = async (req, res, next) => {
   const playerId = req.params.pid;
   const userId = req.params.uid;
-  console.log(user.equipo, "Sati");
+  /* console.log(user.equipo, "Sati"); */
   let player;
 
   try {
