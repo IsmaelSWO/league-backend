@@ -504,6 +504,8 @@ const deletePlayer = async (req, res, next) => {
     }
   }
 
+  console.log(user.equipo, "Sayonara");
+
   try {
     const sess = await mongoose.startSession();
     sess.startTransaction();
