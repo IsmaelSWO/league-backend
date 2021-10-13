@@ -504,7 +504,7 @@ const deletePlayer = async (req, res, next) => {
     }
   }
 
-  if (user.equipo ==="Equipo no asignado" || date < initDateSummerTransfer && user.equipo !== "Admin" || date >= endDateSummerTransfer && user.equipo !== "Admin" || date < initDateWinterTransfer && user.equipo !== "Admin" || date >= endDateWinterTransfer && user.equipo !== "Admin") {
+  if (user.equipo ==="Equipo no asignado" || date < initDateSummerTransfer && user.equipo === "Admin" || date >= endDateSummerTransfer && user.equipo === "Admin" || date < initDateWinterTransfer && user.equipo === "Admin" || date >= endDateWinterTransfer && user.equipo === "Admin") {
     const error = new HttpError(
       "Operación cancelada, el mercado de fichajes no se encuentra abierto",
       404
