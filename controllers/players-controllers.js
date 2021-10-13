@@ -252,7 +252,7 @@ const createDiscardedPlayer = async (req, res, next) => {
     return next(error);
   }
 
-  if (user.players.length < 0) {
+  if (user.players.length < 14) {
     const error = new HttpError(
       "Operación cancelada, ya que se quedaría con menos de 14 jugadores.",
       404
@@ -448,7 +448,7 @@ const deletePlayer = async (req, res, next) => {
   }
 
   if (
-    player.creator.players.length <= 0 &&
+    player.creator.players.length <= 14 &&
     player.creator.id !== req.userData.userId
   ) {
     const error = new HttpError(
@@ -459,7 +459,7 @@ const deletePlayer = async (req, res, next) => {
   }
 
   if (
-     player.creator.players.length <= 0 &&
+     player.creator.players.length <= 14 &&
      player.creator.id === req.userData.userId
   ) {
     const error = new HttpError(
@@ -504,7 +504,7 @@ const deletePlayer = async (req, res, next) => {
     }
   }
 
-  if (user.equipo ==="Equipo no asignado" || date < initDateSummerTransfer && user.equipo === "Admin" || date >= endDateSummerTransfer && user.equipo === "Admin" || date < initDateWinterTransfer && user.equipo === "Admin" || date >= endDateWinterTransfer && user.equipo === "Admin") {
+  if (user.equipo ==="Equipo no asignado" || date < initDateSummerTransfer && user.equipo !== "Admin" || date >= endDateSummerTransfer && user.equipo !== "Admin" || date < initDateWinterTransfer && user.equipo !== "Admin" || date >= endDateWinterTransfer && user.equipo !== "Admin") {
     const error = new HttpError(
       "Operación cancelada, el mercado de fichajes no se encuentra abierto",
       404
