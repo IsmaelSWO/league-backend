@@ -500,7 +500,7 @@ const deletePlayer = async (req, res, next) => {
         "Operación cancelada, ya que el número de jugadores en plantilla más las ofertas realizadas pendientes sería mayor a 18.",
         404
       );
-      return next(error);
+      return Promise.reject(next(error));
     }
   }
 
