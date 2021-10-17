@@ -2,9 +2,9 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 
-/* const router = express.Router(); */
-/* const cors = require("cors");
-router.use(cors()); */
+const router = express.Router(); 
+const cors = require("cors");
+router.use(cors()); 
 
 const playersRoutes = require("./routes/players-routes");
 const ofertasRoutes = require("./routes/ofertas-routes");
