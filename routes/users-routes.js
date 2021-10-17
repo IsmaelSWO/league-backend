@@ -4,6 +4,8 @@ const checkAuth = require("../middleware/check-auth");
 const usersController = require("../controllers/users-controllers");
 
 const router = express.Router();
+const cors = require("cors");
+router.use(cors());
 
 router.get("/", usersController.getUsers);
 

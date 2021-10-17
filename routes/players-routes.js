@@ -5,6 +5,8 @@ const checkAuth = require("../middleware/check-auth");
 const playersControllers = require("../controllers/players-controllers");
 
 const router = express.Router();
+const cors = require("cors");
+router.use(cors());
 
 router.get("/get/:pid", playersControllers.getPlayerById);
 
