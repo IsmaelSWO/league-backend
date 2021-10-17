@@ -96,7 +96,7 @@ const signup = async (req, res, next) => {
     image: "https://imgur.com/2FS8g0d.png",
     division: "Cuarta",
     password: hashedPassword,
-    presupuesto: 300,
+    presupuesto: 6000,
     players: [],
   });
 
