@@ -17,7 +17,7 @@ app.use(cors());
 
 app.use(bodyParser.json());
 
-app.use((req, res, next) => {
+/* app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader(
     "Access-Control-Allow-Headers",
@@ -25,7 +25,7 @@ app.use((req, res, next) => {
   );
   res.setHeader("Access-Control-Allow-Methods", "GET, POST, PATCH, DELETE");
   next();
-});
+}); */
 
 app.use("/api/players", playersRoutes);
 app.use("/api/ofertas", ofertasRoutes);
