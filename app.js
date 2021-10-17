@@ -4,8 +4,11 @@ const path = require('path');
 const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
+ 
+var cors = require('cors')
 
-const router = express.Router(); 
+const app = express();
+app.use(cors());
 /* const cors = require("cors");
 router.use(cors()); */ 
 
@@ -15,13 +18,13 @@ const usersRoutes = require("./routes/users-routes");
 const messagesRoutes = require("./routes/messages-routes");
 const HttpError = require("./models/http-error");
 
-const app = express();
+
 
 
 app.use(bodyParser.json());
 /* app.use(express.json()); */
 
-app.use((req, res, next) => {
+/* app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader(
     'Access-Control-Allow-Headers',
@@ -31,7 +34,7 @@ app.use((req, res, next) => {
 
   next();
 });
-
+ */
 /* app.use(cors()); */
 app.use("/api/players", playersRoutes);
 app.use("/api/ofertas", ofertasRoutes);
