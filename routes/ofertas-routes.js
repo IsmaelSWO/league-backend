@@ -4,8 +4,8 @@ const checkAuth = require("../middleware/check-auth");
 const ofertasControllers = require("../controllers/ofertas-controllers");
 
 const router = express.Router();
-const cors = require("cors");
-router.use(cors());
+/* const cors = require("cors");
+router.use(cors()); */
 
 router.get("/mercado", ofertasControllers.getOfertasMercado);
 

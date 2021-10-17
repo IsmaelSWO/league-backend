@@ -3,8 +3,8 @@ const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 
 const router = express.Router();
-const cors = require("cors");
-router.use(cors());
+/* const cors = require("cors");
+router.use(cors()); */
 
 const playersRoutes = require("./routes/players-routes");
 const ofertasRoutes = require("./routes/ofertas-routes");
@@ -13,7 +13,7 @@ const messagesRoutes = require("./routes/messages-routes");
 const HttpError = require("./models/http-error");
 
 const app = express();
-app.use(cors());
+
 
 app.use(bodyParser.json());
 
@@ -27,6 +27,7 @@ app.use((req, res, next) => {
   next();
 });
 
+app.use(cors());
 app.use("/api/players", playersRoutes);
 app.use("/api/ofertas", ofertasRoutes);
 app.use("/api/users", usersRoutes);
