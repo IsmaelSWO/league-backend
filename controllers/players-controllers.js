@@ -252,13 +252,13 @@ const createDiscardedPlayer = async (req, res, next) => {
     return next(error);
   }
 
-  if (user.players.length < 14) {
+  /* if (user.players.length < 14) {
     const error = new HttpError(
       "Operación cancelada, ya que se quedaría con menos de 14 jugadores.",
       404
     );
     return next(error);
-  }
+  } */
 
   try {
     const sess = await mongoose.startSession();
@@ -447,7 +447,7 @@ const deletePlayer = async (req, res, next) => {
     return next(error);
   }
 
-  if (
+  /* if (
     player.creator.players.length <= 14 &&
     player.creator.id !== req.userData.userId
   ) {
@@ -456,9 +456,9 @@ const deletePlayer = async (req, res, next) => {
       403
     );
     return next(error);
-  }
+  } */
 
-  if (
+  /* if (
      player.creator.players.length <= 14 &&
      player.creator.id === req.userData.userId
   ) {
@@ -467,7 +467,7 @@ const deletePlayer = async (req, res, next) => {
        404
     );
     return next(error);
-  }
+  } */
 
   let user;
   try {
