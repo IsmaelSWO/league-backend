@@ -8,11 +8,13 @@ const usersRoutes = require("./routes/users-routes");
 const messagesRoutes = require("./routes/messages-routes");
 const HttpError = require("./models/http-error");
 
-const app = express();
+var cors = require('cors')
+var app = express()
+app.use(cors())
 
 app.use(bodyParser.json());
 
-app.use((req, res, next) => {
+/* app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader(
     "Access-Control-Allow-Headers",
@@ -21,7 +23,7 @@ app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Methods", "GET, POST, PATCH, DELETE");
 
   next();
-});
+}); */
 
 /* app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
