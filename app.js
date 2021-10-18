@@ -8,13 +8,13 @@ const usersRoutes = require("./routes/users-routes");
 const messagesRoutes = require("./routes/messages-routes");
 const HttpError = require("./models/http-error");
 
-var cors = require('cors')
+/* var cors = require('cors' */
 var app = express()
-app.use(cors())
+/* app.use(cors()) */
 
 app.use(bodyParser.json());
 
-/* app.use((req, res, next) => {
+app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader(
     "Access-Control-Allow-Headers",
@@ -23,7 +23,7 @@ app.use(bodyParser.json());
   res.setHeader("Access-Control-Allow-Methods", "GET, POST, PATCH, DELETE");
 
   next();
-}); */
+});
 
 /* app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
@@ -39,6 +39,7 @@ app.use("/api/players", playersRoutes);
 app.use("/api/ofertas", ofertasRoutes);
 app.use("/api/users", usersRoutes);
 app.use("/api/messages", messagesRoutes);
+
 
 app.use((req, res, next) => {
   const error = new HttpError("No se ha podido encontrar la ruta.", 404);
