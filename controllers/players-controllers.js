@@ -637,8 +637,8 @@ const deleteDiscardedPlayer = async (req, res, next) => {
     (user.equipo !== "Admin" && player.title === "Prueba2(NO ME FICHES)") ||
     (user.equipo !== "Admin" && player.title === "Prueba1") ||
     (actionType === "Clausulazo" &&
-      date >= endDateSummerTransfer &&
-      user.equipo !== "Admin") ||
+      date >= endDateSummerTransfer /* &&
+      user.equipo !== "Admin" */) ||
     (actionType === "Clausulazo" &&
       date < initDateSummerTransfer &&
       user.equipo !== "Admin")
@@ -656,12 +656,12 @@ const deleteDiscardedPlayer = async (req, res, next) => {
     (user.equipo !== "Admin" && player.title === "Prueba1") ||
     (actionType !== "Clausulazo" &&
       date >= endDateSummerTransfer &&
-      date < initDateWinterTransfer &&
-      user.equipo !== "Admin") ||
+      date < initDateWinterTransfer /* &&
+      user.equipo !== "Admin" */) ||
     (actionType !== "Clausulazo" &&
       date >= endDateWinterTransfer &&
-      date < initDateSummerTransfer &&
-      user.equipo !== "Admin")
+      date < initDateSummerTransfer /* &&
+      user.equipo !== "Admin" */)
   ) {
     const error = new HttpError(
       "Operación cancelada, el mercado de fichajes no se encuentra abierto",
